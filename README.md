@@ -4,6 +4,7 @@ Projet ENSEA Option Maker 2026 Alexeï Douillard
 ## Objectif et contexte:
 Au sein de l'association ENSEA Quantum nous souhaitons réaliser un démonstrateur de fusor afin de pouvoir montrer comment contenir la réaction se produisant au sein des étoiles. Nous ne souhatons pas atteindre la fusion mais juste créer un plasma pour des raisons de sécurité.
 
+Voici un tel demo fusor construit par Tyler Johnson, publié sur fusor.net :
 ![Fusor de tyler sur fusor.net](IMG/tyler_fusor.jpg)
 
 ### Qu'est ce que la fusion ? 
@@ -18,7 +19,7 @@ Un fusor est le réacteur le plus simple pour produire de la fusion, inventé pa
 ![Farnsworth](IMG/Farnsworth.webp)
 
 ### C'est pas dangereux ce machin ? 
-Nous cherchons ici à fabriquer un démonstrateur de fusor et non le véritable réacteur nous n'utiliserons donc pas de deuterium ni de tensions supèrieures à 12kV (pour la fusion du deuterium une tension de 30kV est recommandée). Nous ne produiront donc pas de neutrons et très peu de X-ray cependant cela reste un projet nécessitant de nombreuses mesures de sécurité que ce soit pour les hautes tensions ou la construction de la chambre à vide. Nous avons  investit dans des équipements de protection personnel et nous allons faire vérifier notre installation avant tout allumage par nos professeurs encadrants.
+Nous cherchons ici à fabriquer un démonstrateur de fusor et non le véritable réacteur nous n'utiliserons donc pas de deuterium ni de tensions supèrieures à 9kV (pour la fusion du deuterium une tension de 30kV est recommandée). Notre objectif est d'obtenir un plsama en ionisant l'air. Nous ne produiront donc pas de neutrons et très peu de X-ray qui seront absorbés par le verre. Cependant cela reste un projet nécessitant de nombreuses mesures de sécurité que ce soit pour les hautes tensions ou la construction de la chambre à vide. Nous avons  investit dans des équipements de protection personnel et nous allons faire vérifier notre installation avant tout allumage par nos professeurs encadrants.
 
 ## Le Plan :
 
@@ -29,10 +30,32 @@ La réaction montré sur le schéma suivant est celle des véritables fusors, le
 
 ![schéma fusor](IMG/makezin_fusor_schematic.jpg)
 
-Nous allons tout de même essayer d'avoir des mesures plus fiables sur la tension d'entrée ainsi que la pression au sein de la chambre comparé au tutoriel.
 
-Pour fournir la tension requise nous allons utiliser un transformateur de néon controllé par un variac.
-En sortie du transformateur, après un redressement par diode haute tension nous allons connecter la borne plus à la terre qui est reliée aux plaques en acier en haut et en bas du fusor et la borne moins est l'électrode au centre de l'appareil. Cela va nous permettre d'obtenir une différence de potentiel de -10kV entre l'électrode et le corps du fusor
+
+****Toutes les références et datasheets sont accéssibles dans le dossier Documentation****
+
+Pour fournir la tension requise nous allons utiliser un transformateur de néon f.a.r.t. de 9kV ce dernier est alimenté et controllé par un variac Langlois alt7-PE capable de fournir une tension alternative entre 0 et 230V.
+En sortie du transformateur, après un redressement par diode haute tension (diode by16 pouvant aller jusqu'à 16kv avec un courant moyen de 300mA) nous allons connecter la borne plus à la terre qui est reliée aux plaques en acier en haut et en bas du fusor et la borne moins est l'électrode au centre de l'appareil. Cela va nous permettre d'obtenir une différence de potentiel de -4.5kV entre l'électrode et le corps du fusor.
+
+
+Nous allons tout de même essayer d'avoir des mesures plus fiables sur la tension d'entrée ainsi que la pression au sein de la chambre comparé au tutoriel. Pour cela nous allons ajouter un pont diviseur de tensiona l'aidre une résistance de 100 M$\Omega$ entre le voltmètre et 
+
+
+**Voici le schéma du montage :** 
+
+*(il peut être trouvé sous format PDF dans le dossier "Diagramme électrique" et les datasheets sont accessibles en appuyant sur "D" après avoir sélectionné un composant sur le fichier schématique Kicad du même dossier)*
+
+![schéma fusor](IMG/schema_complet.png)
+
+**Le fusor sera dans le boitier suivant :**
+![schéma fusor](IMG/assemblage_complet.png)
+
+La structure est assemblée grâce à des rails en aluminium de 20mm. La structure fait 1.5m de haut par 54 cm de large.
+Le fusor en lui même est dans un cylindre de 7mm d'épaisseur de borosilicate (verre très résistant aux hautes températures) avec 2 plaques d'aluminium comme couvercles. Le tout est entouré de 4 plaques de PETG ajoutent une couche de protection supplémentaire et bloquent les UV.
+Le compartiment intermédiaire hébergera la pompe à vide ainsi que le boitier électrique. La partie infèrieure stockera le transformateur et permettra aussi le rangement du Variac quand la machine n'est pas utilisée.
+
+
+
 
 ### Rétroplanning :
 | Objectif | Date de début | Temps requis|
@@ -58,6 +81,8 @@ La grande majorité des sources provient de [fusor.net](fusor.net)
 ### Materiaux et calculs
 [Calcul de la pression supportée par le borosylicate](https://www.vidrasa.com/eng/products/duran/duran_pf.html) 
 J'obtient une résistance à 7.8 Bar avec un diamètre de 150 mm et une épaisseur de 8mm
+
+[infos sur les chambres à vide et les capteurs](https://bt.e-ditionsbyfry.com/publication/?i=263977&p=22&view=issueViewer)
 
 ### Sécurité : 
 
